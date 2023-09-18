@@ -98,6 +98,8 @@ fastify.get('/hardwareCheckout', async (request, reply) => {
     return reply.view('./templates/table.pug', {jsStringify, ...tableData});
 });
 
+// Declare a /newEquipment route
+// This route renders a form using the Pug template engine
 fastify.get('/newEquipment', async (request, reply) => {
     return reply.view('./templates/newEquipment.pug');
 });

@@ -25,7 +25,8 @@ html
           button.btn.btn-primary(type="submit") Add Equipment
 
     script.
-      // Additional inline scripts if necessary
+      // Function to submit the form
+      // This function takes to form input data and sends it to the api server
       function onSubmit(name, type, isAvailable) {
         const options = {
             method: 'POST',
@@ -38,6 +39,9 @@ html
                 available: isAvailable
             })
         }
+        // Fetch request to the 'api' server
+        // Makes a POST request to the /api/equipment endpoint
+        // This endpoint creates a new object in the database with the data from the form
         fetch('/api/equipment', options)
             .then(response => response.json())
             .then(data => {

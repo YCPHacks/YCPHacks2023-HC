@@ -5,6 +5,12 @@ import database from '../services/database.js';
 const columns = ["Tag", "Category", "Available"];
 
 // This is the data for the table
+// THIS IS NOT HOW WE WANT THIS TO WORK IN THE FUTURE
+// This data pulls from the database once, then is statically loaded into the pug template
+// We want the data to be pulled from the database every time the page is loaded
+// Ideally, the data should be cached in the browser so that it doesn't have to be pulled from the database every time the page is loaded
+// And then we clear the cache if the POST operation is used on the /api/equipment endpoint
+// I had trouble figuring out how to get data dynamically in pug, so I just did it this way for now
 async function getData() {
     const equipment = await database.find('equipment');
 
