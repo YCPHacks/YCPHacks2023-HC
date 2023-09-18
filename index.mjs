@@ -7,7 +7,7 @@ import registerServices from './registerServices.mjs';
 
 // import helpers from './helpers/index.mjs';
 
-import tableData from './mockData/tableData.mjs';
+import createTableData from './mockData/tableData.mjs';
 
 // console.log(helpers);
 
@@ -95,7 +95,7 @@ fastify.get('/hardwareCheckout', async (request, reply) => {
     // The three dots before tableData is called the spread operator
     // It takes the properties of the tableData object and spreads them out into the object passed to the template
     // This is done so that we can pass properties of the tableData object directly
-    return reply.view('./templates/table.pug', {jsStringify, ...tableData});
+    return reply.view('./templates/table.pug', {jsStringify, ...(await createTableData())});
 });
 
 // Declare a /newEquipment route

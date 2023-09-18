@@ -1,4 +1,4 @@
-import database from '../services/database.js';
+import database, { create } from '../services/database.js';
 // Purpose: to provide mock data for the table component
 
 // These are the column headers for the table
@@ -6,8 +6,7 @@ const columns = ["Tag", "Category", "Available"];
 
 // This is the data for the table
 // THIS IS NOT HOW WE WANT THIS TO WORK IN THE FUTURE
-// This data pulls from the database once, then is statically loaded into the pug template
-// We want the data to be pulled from the database every time the page is loaded
+// This data pulls from the database everytime the pug layout is rendered
 // Ideally, the data should be cached in the browser so that it doesn't have to be pulled from the database every time the page is loaded
 // And then we clear the cache if the POST operation is used on the /api/equipment endpoint
 // I had trouble figuring out how to get data dynamically in pug, so I just did it this way for now
@@ -26,16 +25,18 @@ const searchable = true;
 const filterable = true;
 
 // This is compiling the data into a single object
-const tableData = {
-    columns,
-    data: await getData(),
-    sortable,
-    searchable,
-    filterable,
-};
+async function createTableData() {
+    return {
+        columns,
+        data: await getData(),
+        sortable,
+        searchable,
+        filterable,
+    };
+}
 
 // This is exporting the object as a module to be imported elsewhere
-export default tableData;
+export default createTableData;
 
 /* This is how this JSON object will look once exported
 {
