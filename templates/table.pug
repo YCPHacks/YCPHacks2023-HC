@@ -8,7 +8,6 @@ html
     title Dynamic Table
     link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
-    //- script(src="/public/helpers/table.js")
 
   body
     .container.mt-4
@@ -55,7 +54,6 @@ html
         // The jsStringify function converts the Pug variable into a JavaScript variable
         // This was added to avoid an error, I will look for a better solution in the future if there is one
         var data = !{jsStringify(data)};
-        console.log(data);
 
         // Search Function
         function searchData(query) {

@@ -3,6 +3,7 @@ import Fastify from 'fastify';
 import discordWebhook from './services/discordWebhook.mjs';
 import registerPlugins from './plugins.js';
 import jsStringify from 'js-stringify';
+import registerServices from './registerServices.mjs';
 
 // import helpers from './helpers/index.mjs';
 
@@ -15,6 +16,9 @@ const fastify = Fastify({ logger: true });
 
 // Register plugins
 registerPlugins(fastify);
+
+// Register services
+registerServices(fastify);
 
 // Declare a default route
 fastify.get('/', async (request, reply) => {
@@ -92,6 +96,10 @@ fastify.get('/hardwareCheckout', async (request, reply) => {
     // It takes the properties of the tableData object and spreads them out into the object passed to the template
     // This is done so that we can pass properties of the tableData object directly
     return reply.view('./templates/table.pug', {jsStringify, ...tableData});
+});
+
+fastify.get('/newEquipment', async (request, reply) => {
+    return reply.view('./templates/newEquipment.pug');
 });
     
 // Run the server!

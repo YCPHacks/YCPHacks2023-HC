@@ -1,15 +1,18 @@
+import database from '../services/database.js';
 // Purpose: to provide mock data for the table component
 
 // These are the column headers for the table
-const columns = ["Name", "Age", "Occupation"];
+const columns = ["Tag", "Category", "Available"];
 
 // This is the data for the table
-const data = [
-    ["John", 25, "Engineer"],
-    ["Jane", 30, "Doctor"],
-    ["Doe", 20, "Student"],
-    ["Smith", 28, "Designer"]
-];
+async function getData() {
+    const equipment = await database.find('equipment');
+
+    const data = equipment.map((item) => {
+        return [item.tag, item.category, item.available];
+    });
+    return data;
+};
 
 // These are the options for the table
 const sortable = true;
@@ -19,7 +22,7 @@ const filterable = true;
 // This is compiling the data into a single object
 const tableData = {
     columns,
-    data,
+    data: await getData(),
     sortable,
     searchable,
     filterable,
