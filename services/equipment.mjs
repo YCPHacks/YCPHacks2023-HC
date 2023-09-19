@@ -3,7 +3,11 @@ import database from './database.js';
 const equipment = (app) => {
     // Model
     // const Model = createModel(app);
-    if(database.getCollection('equipment') === undefined){
+
+    // Create the equipment collection if it doesn't exist
+    try {
+        database.getCollection('equipment');
+    } catch (error) {
         database.createCollection('equipment');
     }
 
