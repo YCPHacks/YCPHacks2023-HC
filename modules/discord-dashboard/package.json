@@ -1,0 +1,8 @@
+{
+    "name": "@ycphacks/discord-dashboard",
+    "version": "1.0.0",
+    "description": "A dashboard for YCPHacks' Discord server.",
+    "main": "src/index.mjs",
+    "module": "src/index.mjs",
+    "type": "module"
+}

@@ -1,4 +1,7 @@
-import database, { create } from '../services/database.js';
+// import database, { create } from '../services/database.js';
+import { api } from '@ycphacks/core';
+
+const { serverConnection } = api;
 // Purpose: to provide mock data for the table component
 
 // These are the column headers for the table
@@ -11,7 +14,10 @@ const columns = ["Tag", "Category", "Available"];
 // And then we clear the cache if the POST operation is used on the /api/equipment endpoint
 // I had trouble figuring out how to get data dynamically in pug, so I just did it this way for now
 async function getData() {
-    const equipment = await database.find('equipment');
+    // const equipment = await database.find('equipment');
+    const equipment = await serverConnection('GET', 'equipment');
+    console.log(await serverConnection('GET', 'equipment'));
+    console.log(equipment.body);
 
     const data = equipment.map((item) => {
         return [item.tag, item.category, item.available];

@@ -2,7 +2,7 @@ const mysqlx = require('@mysql/xdevapi');
 
 const {
     connectionConfig
-} = require('../config.js');
+} = require('../../config.js');
 // This file is used to make connecting and making database operation easier
 // It avoids having to write the same code over and over again
 

@@ -3,8 +3,4 @@
 ## For 9/13 Demo
 
 - Do `npm install` to install packages in the package.json
-- Do `node index.mjs` to start web app
-- Go to dashboard on `http://localhost:3000/dashboard`
-- Send a message to discord using the input form
-- Go to `Hardware Checkout` tab
-- Play with Sort and Search functionality
+- Do `npm run dev` to start the web app and api app
