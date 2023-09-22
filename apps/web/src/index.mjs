@@ -4,22 +4,23 @@
 import 'dotenv/config'; 
 import Fastify from 'fastify';
 
-import registerPlugins from './plugins.js';
-import jsStringify from 'js-stringify';
+// import registerPlugins from './plugins.js';
+// import jsStringify from 'js-stringify';
 import discordDashboard from "@ycphacks/discord-dashboard";
 import hardwareCheckout from "@ycphacks/hardware-checkout";
+
+console.log(hardwareCheckout);
 
 // Creates a new Fastify instance
 const fastify = Fastify({ logger: true });
 
 await discordDashboard(fastify);
-await hardwareCheckout(fastify);
+
+fastify.register(hardwareCheckout);
 
 // Register plugins
-registerPlugins(fastify);
+// registerPlugins(fastify);
 
-
-    
 // Run the server!
 const start = async () => {
     try {

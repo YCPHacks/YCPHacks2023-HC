@@ -4,5 +4,8 @@
     "description": "A dashboard for YCPHacks' Discord server.",
     "main": "src/index.mjs",
     "module": "src/index.mjs",
-    "type": "module"
+    "type": "module",
+    "dependencies": {
+        "fastify-plugin": "^4.5.1"
+    }
 }

@@ -10,6 +10,7 @@ function registerPlugins(app) {
         engine: {
             pug: pug,
         },
+        root: path.join(require.resolve('@ycphacks'))
     });
 
     // Register the static file server

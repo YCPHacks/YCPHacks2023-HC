@@ -24,7 +24,6 @@ const equipment = (app) => {
         return res
             .header('Content-Type', 'application/json')
             .send(JSON.stringify(equipment));
-        return equipment;
     });
 
     // Create operation
@@ -33,10 +32,7 @@ const equipment = (app) => {
     app.post('/equipment', async (req, res) => {
         const equipment = await database.create('equipment', req.body);
         console.log(equipment);
-        return res
-            .header('Content-Type', 'application/json')
-            .send(equipment);
-        // return equipment;
+        return equipment;
     });
 
     // Patch operation

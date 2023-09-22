@@ -40,9 +40,10 @@ html
             })
         }
         // Fetch request to the 'api' server
-        // Makes a POST request to the /api/equipment endpoint
+        // Makes a POST request to the equipment endpoint
         // This endpoint creates a new object in the database with the data from the form
-        fetch('/api/equipment', options)
+        console.log(process.env.API_APP_URL + 'equipment');
+        fetch(process.env.API_APP_URL + 'equipment', options)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
