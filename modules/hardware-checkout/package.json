@@ -4,5 +4,9 @@
     "description": "Hardware checkout system for YCP Hacks",
     "main": "src/index.mjs",
     "module": "src/index.mjs",
-    "type": "module"
+    "type": "module",
+    "dependencies": {
+        "@fastify/static": "^6.11.2",
+        "pug": "^3.0.2"
+    }
 }

@@ -9,7 +9,7 @@ const serverConnection = async (method = "GET", service, data) => {
     if(!!data){
         options.body = JSON.stringify(data);
     }
-    const response = await fetch(url, options);
+    const response = await fetch(url, options).then(res => res.json());
     return response;
 }
 
