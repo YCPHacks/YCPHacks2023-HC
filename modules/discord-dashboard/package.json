@@ -3,9 +3,10 @@
     "version": "1.0.0",
     "description": "A dashboard for YCPHacks' Discord server.",
     "main": "src/index.mjs",
-    "module": "src/index.mjs",
-    "type": "module",
     "dependencies": {
-        "fastify-plugin": "^4.5.1"
+        "@fastify/view": "^8.2.0",
+        "fastify-plugin": "^4.5.1",
+        "path": "^0.12.7",
+        "pug": "^3.0.2"
     }
 }

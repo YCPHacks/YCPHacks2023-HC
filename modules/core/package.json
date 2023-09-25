@@ -2,7 +2,5 @@
     "name": "@ycphacks/core",
     "version": "0.0.1",
     "description": "Core package for YCPHacks",
-    "module": "src/index.mjs",
-    "main": "src/index.mjs",
-    "type": "module"
+    "main": "src/index.mjs"
 }

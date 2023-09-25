@@ -27,30 +27,31 @@ html
     script.
       // Function to submit the form
       // This function takes to form input data and sends it to the api server
-      function onSubmit(name, type, isAvailable) {
+        function onSubmit(name, type, isAvailable) {
+        const API_APP_URL = 'http://localhost:3030/'; // Replace with your API URL
         const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                tag: name,
-                category: type,
-                available: isAvailable
-            })
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            tag: name,
+            category: type,
+            available: isAvailable
+          })
         }
         // Fetch request to the 'api' server
         // Makes a POST request to the equipment endpoint
         // This endpoint creates a new object in the database with the data from the form
-        console.log(process.env.API_APP_URL + 'equipment');
-        fetch(process.env.API_APP_URL + 'equipment', options)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                alert('Equipment added successfully!')
-            })
-            .catch(error => {
-                console.log(error)
-                alert('There was an error adding the equipment.')
-            });
-      }
+        console.log(API_APP_URL + 'equipment');
+        fetch(API_APP_URL + 'equipment', options)
+          .then(response => response.json())
+          .then(data => {
+            console.log(data)
+            alert('Equipment added successfully!')
+          })
+          .catch(error => {
+            console.log(error)
+            alert('There was an error adding the equipment.')
+          });        }
+

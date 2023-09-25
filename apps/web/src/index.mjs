@@ -14,7 +14,7 @@ console.log(hardwareCheckout);
 // Creates a new Fastify instance
 const fastify = Fastify({ logger: true });
 
-await discordDashboard(fastify);
+fastify.register(discordDashboard);
 
 fastify.register(hardwareCheckout);
 

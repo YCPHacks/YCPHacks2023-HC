@@ -12,17 +12,21 @@ function registerViewEngine(app) {
             pug: pug,
         },
         root: path.join(require.resolve('@ycphacks/hardware-checkout'), '..', 'views'),
+        propertyName: 'viewHC',
+        defaultContext: {
+            templates: path.join(require.resolve('@ycphacks/core'), '..', 'templates')
+        }
     });
 
     app.get('/inventory', async function (request, reply) {
         const { default: createTableData } = await import('./utils/tableData.mjs');
         // const templatePath = path.join(require.resolve('@ycphacks/hardware-checkout'), 'src/views/hardware-inventory.pug');
         // console.log(path.join(require.resolve('@ycphacks/hardware-checkout')));
-        return reply.view('hardware-inventory.pug', {jsStringify, ...(await createTableData())});
+        return reply.viewHC('hardware-inventory.pug', {jsStringify, ...(await createTableData())});
     });
 
     app.get('/new-equipment', async function (request, reply) {
-        return reply.view('new-equipment.pug');
+        return reply.viewHC('new-equipment.pug');
     });
 }
 

@@ -16,8 +16,6 @@ const columns = ["Tag", "Category", "Available"];
 async function getData() {
     // const equipment = await database.find('equipment');
     const equipment = await serverConnection('GET', 'equipment');
-    console.log(await serverConnection('GET', 'equipment'));
-    console.log(equipment.body);
 
     const data = equipment.map((item) => {
         return [item.tag, item.category, item.available];
