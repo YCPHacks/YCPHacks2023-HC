@@ -6,7 +6,7 @@ import Fastify from 'fastify';
 
 // import registerPlugins from './plugins.js';
 // import jsStringify from 'js-stringify';
-import discordDashboard from "@ycphacks/discord-dashboard";
+import eventControlPanel from "@ycphacks/event-control-panel";
 import hardwareCheckout from "@ycphacks/hardware-checkout";
 
 console.log(hardwareCheckout);
@@ -14,7 +14,7 @@ console.log(hardwareCheckout);
 // Creates a new Fastify instance
 const fastify = Fastify({ logger: true });
 
-fastify.register(discordDashboard);
+fastify.register(eventControlPanel);
 
 fastify.register(hardwareCheckout);
 

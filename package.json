@@ -2,7 +2,7 @@
   "name": "root",
   "version": "1.0.0",
   "workspaces": [
-      "packages/*", "apps/*" 
+      "packages/web/*", "packages/api/*", "apps/*" 
   ],
   "dependencies": {
     "lerna": "^7.3.0",

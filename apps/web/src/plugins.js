@@ -6,12 +6,12 @@ const pug = require('pug');
 function registerPlugins(app) {
     // Register the view engine
     // This allows us to render Pug templates
-    app.register(fastifyView, {
-        engine: {
-            pug: pug,
-        },
-        root: path.join(require.resolve('@ycphacks'))
-    });
+    // app.register(fastifyView, {
+    //     engine: {
+    //         pug: pug,
+    //     },
+    //     root: path.join(require.resolve('@ycphacks'))
+    // });
 
     // Register the static file server
     // This allows us to serve static files like CSS, images, and scripts
