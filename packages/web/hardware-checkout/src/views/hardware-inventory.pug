@@ -73,6 +73,34 @@ html
             return 0;
           });
         }
+        
+        //  9/27 - 10/4
+        // #24 Filter Functionality for Inventory Table - Hardware Checkout
+
+        /*We need to be able to filter our hardware inventory by Availability and Category, making it easier to access different table rows.
+        This should be done by sending a query to a backend API that fetches from the database.
+        Example query to send: 
+        GET /equipment?category=PC&available=true
+        */
+        // button that will run the command to select data from the table and issue a get request to the backend and update the page
+        button(type="button" id="filterBtn" onclick=GetandRefresh()) Filter and Refresh
+
+        //function triggered by the button
+        function GetandRefresh(filterValue){
+          //    \/----variable to store the data
+          var gData;
+          // \/----get request to the backend
+          $.get("/equipment?category=PC&available=true", function(data){//<---data returns values requested from the backend
+            gData = data; //<---assigns the data to the variable
+          });
+          //calls the renderTable function to update the page and passes in our data from the backend
+          renderTable(gData);
+          //reloads the page to show the updated table
+          location.reload();
+
+          //returns the data to the function
+          return gData;// I honestly put this in here because Koen said in JS fucntions can be used as variables so incase we need it it is here
+        }
 
         // Placeholder Filter Function
         function filterData(filterValue) {
