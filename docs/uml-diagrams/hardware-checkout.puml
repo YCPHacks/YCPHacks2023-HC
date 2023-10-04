@@ -1,0 +1,40 @@
+@startuml hardware-checkout
+allowmixing
+class User {
+    -userID: Unique identifier
+    -name: String
+    -email: String
+    -role: Enum (Attendee, Organizer)
+}
+
+class HardwareItem {
+    -itemID: Unique identifier
+    -tag: String
+    -category: String
+}
+
+class RentalRequest {
+    -requestID: Unique identifier
+    -status: Enum (Pending, Accepted, Denied)
+    -requestDate: Date
+}
+
+class Rental {
+    -rentalID: Unique identifier
+    -startDate: Date
+    -endDate: Date
+}
+
+class RentalRecord {
+    -recordID: Unique identifier
+    -rentalHistory: List of Rental
+}
+
+HardwareItem "1" -- "0..*" RentalRequest
+RentalRequest "1" -- "1" User: RequestedBy
+RentalRequest "0..1" -- "1" Rental
+Rental "1" -- "1" User: RentedBy
+Rental "1" -- "1" HardwareItem
+HardwareItem "1" -- "1" RentalRecord
+
+@enduml

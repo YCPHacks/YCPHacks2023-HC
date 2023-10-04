@@ -1,0 +1,16 @@
+@startuml user
+allowmixing
+actor "User" as user
+
+user -> "Login" : login
+
+user -> "Register" : register
+
+user -> "Home" : home
+
+user -> "Profile" : profile
+
+user -> "Settings" : settings
+
+
+@enduml

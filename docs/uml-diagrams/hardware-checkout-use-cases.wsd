@@ -1,0 +1,51 @@
+@startuml attendee-views-hardware-inventory
+participant Attendee as A
+participant Application as App
+participant Database as DB
+
+A -> App: Request hardware inventory
+App -> DB: Fetch all hardware items
+DB --> App: Return hardware items
+App --> A: Display hardware items
+@enduml
+
+@startuml attendee-requests-hardware-item
+participant Attendee as A
+participant Application as App
+participant Database as DB
+
+A -> App: Select hardware item for rental
+App -> A: Request confirmation
+A -> App: Confirm request
+App -> DB: Create new RentalRequest
+DB --> App: Acknowledge creation
+App --> A: Notify successful request
+@enduml
+
+@startuml organizer-reviews-and-approves-rental-request
+participant Organizer as O
+participant Application as App
+participant Database as DB
+
+O -> App: View pending rental requests
+App -> DB: Fetch pending RentalRequests
+DB --> App: Return RentalRequests
+App --> O: Display pending requests
+O -> App: Approve a request
+App -> DB: Update request status to "Accepted", Create new Rental
+DB --> App: Acknowledge update and creation
+App --> O: Notify successful approval
+@enduml
+
+@startuml organizer-manually-rents-hardware-item
+participant Organizer as O
+participant Application as App
+participant Database as DB
+
+O -> App: Select attendee and hardware item for manual rental
+App -> O: Request confirmation
+O -> App: Confirm manual rental
+App -> DB: Create new Rental, Update RentalRecord
+DB --> App: Acknowledge creation and update
+App --> O: Notify successful manual rental
+@enduml

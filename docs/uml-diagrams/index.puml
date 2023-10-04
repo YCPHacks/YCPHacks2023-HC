@@ -1,0 +1,10 @@
+@startuml Index
+!include hardware-checkout.puml
+' newpage
+!include hardware-checkout-use-cases.puml
+' newpage
+!include user.puml
+
+@enduml
+
+
